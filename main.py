@@ -77,5 +77,13 @@ crew=Crew(
         decision_making_task
     ],
     process=Process.hierarchical,
-    manager_llm=
-    
+    manager_llm=OpenAIGPT4
+)
+
+# Kick of the crew
+results = crew.kickoff()
+
+print("Crew usage", crew.usage_metrics)
+
+print("Crew work results:")
+print(results)
