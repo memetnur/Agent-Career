@@ -16,18 +16,21 @@ We welcome contributions from educators, career counselors, and students.
 
 ## Features
 
-Career Milestones Tracker: Log important career events and achievements.
-Skill Development: Monitor progress in key AI skills and technologies.
-Goal Setting: Set short-term and long-term career goals.
-Resource Directory: Access a curated list of resources, including courses, books, conferences, and more.
+- Career Path Tracker: Log important career events and achievements.
+- Skill Development: Monitor progress in key AI skills and technologies.
+
 ## Installation
 
-Clone the Repository:
+### Prerequisites
+- docker
+### Steps
+
+```
+#Clone the Repository:
 bash
-Copy code
 git clone https://github.com/memetnur/agent-career.git
 
-Navigate to the Repository Directory:
+#Navigate to the Repository Directory:
 bash
-Copy code
 cd agent-career
+```
