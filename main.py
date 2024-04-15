@@ -1,7 +1,17 @@
 #store the logic, connects all agents, tasks and run the crew 
-
-#1. create agents
+from crewai import Crew, Process
 from agents import CareerPathAgents
+from tasks import CareerPathAgents
+from langchain_openai import ChatOpenAI
+
+from dotenv import load_dotenv
+# LLM 
+OpenAIGPT4=ChatOpenAI(
+    model="gpt-4"
+) #it costs 20 cent to run for gpt4 and gpt3.5 result is not good enough
+#setum tools
+
+#create agents
 #setum agents
 agents=CareerPathAgents
 career_manager=agents.career_manager
@@ -24,13 +34,11 @@ tasks.ask_current_state(
     career_topic=career_topic,
     description=description,
 )
-
 tasks.find_job_opportunities(
     agent=career_exploration_agent,
     career_topic=career_topic,
     description=description,
 )
-
 tasks.comparison_task(
     agent=comparison_agent,
     career_topic=career_topic,
@@ -50,3 +58,24 @@ tasks.decision_making_task(
 
 #3. create tools
 
+#setup crew
+
+crew=Crew(
+    agents=[
+        career_manager,
+        self_discovery_agent,
+        career_exploration_agent,
+        comparison_agent,
+        career_investigation_agent,
+        decision_making_agent,   
+    ],
+    tasks=[
+        ask_current_state,
+        find_job_opportunities,
+        comparison_task,
+        career_investigation_task,
+        decision_making_task
+    ],
+    process=Process.hierarchical,
+    manager_llm=
+    
